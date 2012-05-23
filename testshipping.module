@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * Implements hook_uc_shipping_method().
+ */
+function testshipping_uc_shipping_method(){
+	$methods = array();
+	
+	$methods['testshipping'] = array(
+		'id' => 'testshipping',
+		'module' => 'testshipping',
+		'title' => 'testshipping',
+		'description' => 'testshipping desc',
+            'quote' => array(
+			'type' => 'order',
+			'callback' => 'testshipping_quote',
+			'accessorials' => array(
+				'Test Shipping',
+			),
+		),
+		'enabled' => TRUE,
+	);
+
+	return $methods;
+}
+
+/**
+ * Standard callback to return a shipping rate.
+ */
+function testshipping_quote(){
+	$quotes[] = array(
+		'rate' => 5,
+		'label' => 'testshipping',
+		'option_label' => 'test shipping label'
+	);
+	
+	return $quotes;
+}

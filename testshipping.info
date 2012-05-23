@@ -1,0 +1,4 @@
+name = Test Shipping Module
+description = A skeleton shipping module for Ubercart 3+
+core = 7.x
+package = Ubercart
